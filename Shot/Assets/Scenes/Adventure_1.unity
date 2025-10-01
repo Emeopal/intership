@@ -2188,8 +2188,9 @@ GameObject:
   - component: {fileID: 1581987107}
   - component: {fileID: 1581987106}
   - component: {fileID: 1581987105}
-  - component: {fileID: 1581987108}
   - component: {fileID: 1581987109}
+  - component: {fileID: 1581987110}
+  - component: {fileID: 1581987111}
   m_Layer: 1
   m_Name: Player
   m_TagString: Untagged
@@ -2285,24 +2286,12 @@ Transform:
   m_GameObject: {fileID: 1581987103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.47, y: -2.87, z: 0}
+  m_LocalPosition: {x: -6.42, y: -3.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1581987108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581987103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2d4f19a9ee8e8a4394b7ea5482fcc2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &1581987109
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2338,6 +2327,43 @@ CapsuleCollider2D:
   m_Offset: {x: 0.14799619, y: -0.06765556}
   m_Size: {x: 1.0740638, y: 1.6563554}
   m_Direction: 0
+--- !u!114 &1581987110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581987103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a497bbb6f817244a5c8f1062d48152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playermovespeed: 10
+  playerRB: {fileID: 0}
+  playerColl: {fileID: 0}
+  playerAnim: {fileID: 0}
+--- !u!95 &1581987111
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581987103}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9fc57a13b85917e49bf061c1f3832022, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1902430828
 GameObject:
   m_ObjectHideFlags: 0
