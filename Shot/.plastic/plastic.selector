@@ -1,0 +1,4 @@
+repository "Shot@tj_emeopal@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
