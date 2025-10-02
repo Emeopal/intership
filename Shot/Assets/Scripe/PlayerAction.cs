@@ -56,7 +56,7 @@ public class PlayerAction : MonoBehaviour
     }
     void playerjump()
     {
-        if (isGround)
+        if (isGround&&isjump==false)
         {
             playerjumpcount = 1;
             playerAnim.SetBool("jump", false);
@@ -71,6 +71,10 @@ public class PlayerAction : MonoBehaviour
             pressjump = false;
             playerRB.velocity = new Vector2(playerRB.velocity.x, playerjumpspeed);
             playerjumpcount--;
+        }
+        if (playerRB.velocity.y < 1)
+        {
+            isjump = false;
         }
     }
 
@@ -88,7 +92,7 @@ public class PlayerAction : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump")&&playerjumpcount>0)
         {
-            
+            isjump = true;
             pressjump = true;
         }
     }

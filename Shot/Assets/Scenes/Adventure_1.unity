@@ -122,6 +122,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &502535515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 502535516}
+  m_Layer: 6
+  m_Name: foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &502535516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502535515}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.16, y: -0.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1581987107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &530549730
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +167,7 @@ GameObject:
   - component: {fileID: 530549734}
   - component: {fileID: 530549736}
   - component: {fileID: 530549735}
-  m_Layer: 1
+  m_Layer: 6
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2286,10 +2317,11 @@ Transform:
   m_GameObject: {fileID: 1581987103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.42, y: -3.06, z: 0}
+  m_LocalPosition: {x: -6.44, y: -2.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 502535516}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &1581987109
@@ -2340,6 +2372,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playermovespeed: 10
+  playerjumpspeed: 7
+  playerjumpcount: 0
+  isjump: 0
+  pressjump: 0
+  Ground:
+    serializedVersion: 2
+    m_Bits: 64
+  isGround: 0
+  foot: {fileID: 502535516}
   playerRB: {fileID: 0}
   playerColl: {fileID: 0}
   playerAnim: {fileID: 0}
