@@ -28,10 +28,10 @@ public class PlayerAction : MonoBehaviour
         playerRB.velocity = new Vector2(playerRB.velocity.x, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         updatecheck();
+        playerattack();
     }
 
     private void FixedUpdate()
@@ -56,14 +56,17 @@ public class PlayerAction : MonoBehaviour
     }
     void playerjump()
     {
-        if (isGround&&isjump==false)
+        if (isGround)
         {
-            playerjumpcount = 1;
             playerAnim.SetBool("jump", false);
         }
         else
         {
             playerAnim.SetBool("jump", true);
+        }
+        if (isGround && isjump == false)
+        {
+            playerjumpcount = 1;
         }
 
         if (pressjump)
@@ -83,6 +86,14 @@ public class PlayerAction : MonoBehaviour
         playerAnim.SetFloat("y.speed",playerRB.velocity.y);
     }
 
+    void playerattack()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            playerAnim.SetTrigger("attack");
+        }
+    }
+
     void FixedUpdateCheck()
     {
         isGround = Physics2D.OverlapCircle(foot.position, 0.1f, Ground);
@@ -96,4 +107,6 @@ public class PlayerAction : MonoBehaviour
             pressjump = true;
         }
     }
+
+    
 }
