@@ -1,84 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Windows;
 
 
 public class Arrow : MonoBehaviour
 {
-    
+    public bool leftorright;
     public float ArrowSpeed;
-    public Rigidbody2D ArrowRB;
-    public Collider2D ArrowColl;
-    private bool isStuck = false;
+    private Rigidbody2D ArrowRB;
+    private Collider2D ArrowColl;
     private int flyingLayer;
     private int staticLayer;
-    public int faceNum_1;
+    public float speed;
+    public bool isStuck_G=false;
+    public LayerMask Ground;
+    public Transform Head;
+ 
     
-   
-    // Start is called before the first frame update
+        // Start is called before the first frame update
     void Start()
     {
+        leftorright = true;
         ArrowColl = GetComponent<Collider2D>();
         ArrowRB = GetComponent<Rigidbody2D>();
-        flyingLayer = LayerMask.NameToLayer("Player");
-        staticLayer = LayerMask.NameToLayer("Weapon");
-        ArrowRB.velocity = new Vector2(ArrowSpeed , 0);
+        float faceNum = UnityEngine.Input.GetAxisRaw("Horizontal");
+        speed = faceNum * ArrowSpeed;
+        ArrowRB.velocity = new Vector2(speed,ArrowRB.velocity.y);
     }
 
     // Update is called once per frame
     void Update()
     {
-        check_2();
         
-        if (isStuck)
-        {
-            ArrowRB.velocity = new Vector2(0, 0);
-        }
+        maintiandirection();
         
-        else
-        {
-            ArrowRB.velocity = new Vector2(ArrowSpeed * faceNum_1, ArrowRB.velocity.y);
-        }
         
-        check_1();
     }
     
-    void check_1()
+    void maintiandirection()
     {
-        if (!ArrowColl.gameObject.CompareTag("Ground"))
+        if (ArrowRB.velocity.x>0)
         {
-            Physics2D.IgnoreLayerCollision(flyingLayer,staticLayer,true);
+            ArrowRB.velocity = new Vector2(ArrowSpeed,ArrowRB.velocity.y);
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
         }
-        else
+   
+        else if(ArrowRB.velocity.x <0)
         {
-            isStuck = true;
+            ArrowRB.velocity = new Vector2(-ArrowSpeed, ArrowRB.velocity.y);
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+        }
+        else if(ArrowRB.velocity.x == 0)
+        {
+            if (UnityEngine.Input.GetKeyDown("d"))
+            {
+                leftorright = true;
+            }
+            else if (UnityEngine.Input.GetKeyDown("a"))
+            {
+                leftorright = false;
+            }
+
+            if (leftorright)
+            {
+                ArrowRB.velocity = new Vector2(ArrowSpeed, ArrowRB.velocity.y);
+                transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            }
+            else if(!leftorright)
+            {
+                ArrowRB.velocity = new Vector2(-ArrowSpeed, ArrowRB.velocity.y);
+                transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            }
         }
     }
-    void check_2()
-    {
-        float faceNum = Input.GetAxisRaw("Horizontal");
-        if (faceNum != 0)
-        {
-            transform.localScale = new Vector3(-faceNum, transform.localScale.y, transform.localScale.z);
-            /*认为y和z默认*/
-        }
-        if (faceNum > 0)
-        {
-            faceNum_1 = 1;
-        }
-        else if (faceNum < 0)
-        {
-            faceNum_1 = -1;
-        }
 
-
-
-
-
-    }
-
-
-
-
-
+    
 }

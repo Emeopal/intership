@@ -8,15 +8,21 @@ public class ArrowShoot : MonoBehaviour
     public GameObject arrowPrefab;
     public float speed;
     public Transform arrowStart;
-    public Rigidbody2D ArrowRB;
+    public Collider2D Coll;
     private Vector3 StartPosition;
-    public Collider2D ArrowColl;
     public bool ArrowExist;
-   
+    public int i = 1;
+    public List<GameObject> Arrows;
+    public LayerMask Ground;
+    public Transform Head;
+    public Collider2D PlayerCollider;
+    public LayerMask PlayerMask;
+    
+
     // Start is called before the first frame update
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
@@ -31,18 +37,26 @@ public class ArrowShoot : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             ArrowExist = true;
-            float faceNum = Input.GetAxisRaw("Horizontal");
-            if (faceNum != 0)
-            {
-                transform.localScale = new Vector3(-faceNum, transform.localScale.y, transform.localScale.z);
-                /*认为y和z默认*/
-            }
-            GameObject arrow = Instantiate(arrowPrefab, arrowStart.position, transform.rotation);
-            ArrowColl = GetComponent<Collider2D>();
-            ArrowRB = GetComponent<Rigidbody2D>();
-            ArrowRB.velocity = transform.right * speed * faceNum;
             
+            GameObject arrow= Instantiate(arrowPrefab, arrowStart.position, transform.rotation);
+            
+            Arrows.Add(arrow);
+
+            foreach(GameObject i in Arrows){
+                
+
+                if (Physics2D.OverlapBox(Head.position, new Vector2(0.1f, 0.1f), Ground)){
+                    Destroy(i, 5);
+                }
+                /*if(Physics2D.OverlapBox(Head.position, new Vector2(0.1f, 0.1f), PlayerMask))
+                {
+                   
+                    
+                }*/
+                
+            }
         }
     }
+    
     
 }
