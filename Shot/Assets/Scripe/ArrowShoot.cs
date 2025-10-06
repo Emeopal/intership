@@ -15,8 +15,8 @@ public class ArrowShoot : MonoBehaviour
     public List<GameObject> Arrows;
     public LayerMask Ground;
     public Transform Head;
-    public Collider2D PlayerCollider;
     public LayerMask PlayerMask;
+    public bool check=false;
     
 
     // Start is called before the first frame update
@@ -39,24 +39,9 @@ public class ArrowShoot : MonoBehaviour
             ArrowExist = true;
             
             GameObject arrow= Instantiate(arrowPrefab, arrowStart.position, transform.rotation);
-            
-            Arrows.Add(arrow);
-
-            foreach(GameObject i in Arrows){
-                
-
-                if (Physics2D.OverlapBox(Head.position, new Vector2(0.1f, 0.1f), Ground)){
-                    Destroy(i, 5);
-                }
-                /*if(Physics2D.OverlapBox(Head.position, new Vector2(0.1f, 0.1f), PlayerMask))
-                {
-                   
-                    
-                }*/
-                
-            }
         }
     }
     
-    
+
+
 }

@@ -350,11 +350,11 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Base Layer
+  m_Name: Player
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7878015936494825177}
-    m_Position: {x: 310, y: 200, z: 0}
+    m_Position: {x: 310, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3861169488582783865}
     m_Position: {x: 670, y: 50, z: 0}
@@ -413,7 +413,7 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Base Layer
+    m_Name: Player
     m_StateMachine: {fileID: -238227803487019737}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -485,9 +485,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: jump
+  - m_ConditionMode: 3
+    m_ConditionEvent: y.speed
     m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: y.speed
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7878015936494825177}
   m_Solo: 1

@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Collider2D LittleGreenColl;
     public Rigidbody2D LittleGreenRB;
     public GameObject Enermy;
+    public Animator EnemyAnim;
     
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         LittleGreenColl = GetComponent<Collider2D>();
         LittleGreenRB = GetComponent<Rigidbody2D>();
+        EnemyAnim = GetComponent<Animator>();
         //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -37,7 +39,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Weapon"))
         {
-            Destroy(Enermy, 3);
+            Destroy(Enermy, 0.6f);
+            EnemyAnim.SetTrigger("BeingAttack");
         }
     }
 }

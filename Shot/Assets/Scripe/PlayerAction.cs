@@ -96,8 +96,16 @@ public class PlayerAction : MonoBehaviour
 
     void FixedUpdateCheck()
     {
-        isGround = Physics2D.OverlapCircle(foot.position, 0.1f, Ground);
+        if (Physics2D.OverlapCircle(foot.position, 0.1f, Ground))
+        {
+            isGround = true;
+        }
+        else
+        {
+            isGround = false;
+        }
     }
+    
 
     void updatecheck()
     {
