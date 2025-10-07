@@ -27,7 +27,7 @@ public class Things : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            bgm.Play();
+            //bgm.Play();
             Destroy(Coin,0);
         }
     }
