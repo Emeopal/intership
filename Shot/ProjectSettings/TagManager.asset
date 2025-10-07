@@ -7,11 +7,13 @@ TagManager:
   - Enemy
   - Weapon
   - Ground
+  - GoldCoin
+  - SilverCoin
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BackGround
   - Water
   - UI
   - Ground
@@ -43,4 +45,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Crowd
+    uniqueID: 559106727
+    locked: 0
+  - name: Map
+    uniqueID: 3277861985
+    locked: 0
+  - name: Player
+    uniqueID: 2631888263
+    locked: 0
+  - name: Enemy
+    uniqueID: 1238096965
+    locked: 0
+  - name: Things
+    uniqueID: 99464641
+    locked: 0
+  - name: System
+    uniqueID: 2360172691
+    locked: 0
+  - name: Text
+    uniqueID: 315340155
     locked: 0

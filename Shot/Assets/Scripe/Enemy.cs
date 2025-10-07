@@ -14,15 +14,20 @@ public class Enemy : MonoBehaviour
     public Transform leftpos;
     public Transform rightpos;
     public bool dead = false;
+    private PickUpSpawn pickupspawner;
+    public AudioSource bgm;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
     {
-
         LittleGreenColl = GetComponent<Collider2D>();
         LittleGreenRB = GetComponent<Rigidbody2D>();
         EnemyAnim = GetComponent<Animator>();
-
+        pickupspawner = GetComponent<PickUpSpawn>();
+        bgm = GetComponent<AudioSource>();
+        bgm.clip = clip;
+        bgm.loop = false;
     }
 
     // Update is called once per frame
@@ -36,8 +41,10 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Weapon"))
         {
+            bgm.Play();
             dead = true;
             Destroy(Enemy_LittleGreen, 0.6f);
+            pickupspawner.dropitems();
             EnemyAnim.SetTrigger("BeingAttack");
         }
     }
