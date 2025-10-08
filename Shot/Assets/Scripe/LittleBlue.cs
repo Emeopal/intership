@@ -68,11 +68,11 @@ public class LittleBlue : MonoBehaviour
     {
         if (Enemy_LittleBlue.GetComponent<Transform>().localScale.x > 0)
         {
-            LittleBlueRB.velocity = new Vector2(enemyMoveSpeed, LittleBlueRB.velocity.y);
+            LittleBlueRB.velocity = new Vector2(enemyMoveSpeed, 0);
         }
         else if (Enemy_LittleBlue.GetComponent<Transform>().localScale.x < 0)
         {
-            LittleBlueRB.velocity = new Vector2(-enemyMoveSpeed, LittleBlueRB.velocity.y);
+            LittleBlueRB.velocity = new Vector2(-enemyMoveSpeed, 0);
         }
     }
 }

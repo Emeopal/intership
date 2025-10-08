@@ -16,14 +16,15 @@ public class ArrowShoot : MonoBehaviour
     public bool check=false;
     public AudioSource bgm;
     public AudioClip clip;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         bgm = GetComponent<AudioSource>();
-        bgm.loop = false;
         bgm.clip = clip;
+        bgm.loop = false;
+        bgm.Play();
     }
 
     // Update is called once per frame
@@ -38,9 +39,9 @@ public class ArrowShoot : MonoBehaviour
         
         if (Input.GetButtonDown("Fire1"))
         {
-            
             bgm.Play();
             GameObject arrow= Instantiate(arrowPrefab, arrowStart.position, transform.rotation);
+            
         }
     }
     

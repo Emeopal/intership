@@ -5,14 +5,16 @@ using UnityEngine;
 public class PickUpSpawn : MonoBehaviour
 {
     public DropPrefab[] dropPrefabs;
+    private bool iscreated;
 
     public void dropitems()
     {
-        foreach(var dropprefab in dropPrefabs)
+        foreach (var dropprefab in dropPrefabs)
         {
-            if (Random.Range(0f, 100f) <= dropprefab.dropPercentage)
+            if (Random.Range(0f, 100f) <= dropprefab.dropPercentage&&iscreated==false)
             {
                 Instantiate(dropprefab.prefab, transform.position, Quaternion.identity);
+                iscreated = true;
             }
         }
     }

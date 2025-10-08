@@ -9,6 +9,10 @@ TagManager:
   - Ground
   - GoldCoin
   - SilverCoin
+  - Buff_Life
+  - Buff_Speed
+  - Buff_Fly
+  - Buff_NB
   layers:
   - Default
   - TransparentFX

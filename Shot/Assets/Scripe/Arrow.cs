@@ -16,12 +16,13 @@ public class Arrow : MonoBehaviour
     public GameObject Arrow_C;
     public Collider2D PlayerColl;
     public GameObject Player;
+    public Renderer arrowrender;
  
     
         // Start is called before the first frame update
     void Start()
     {
-        
+        arrowrender = GetComponent<Renderer>();
         ArrowColl = GetComponent<Collider2D>();
         ArrowRB = GetComponent<Rigidbody2D>();
         float faceNum = UnityEngine.Input.GetAxisRaw("Horizontal");
@@ -39,6 +40,7 @@ public class Arrow : MonoBehaviour
         speed = faceNum * ArrowSpeed;
         ArrowRB.velocity = new Vector2(speed,ArrowRB.velocity.y);
         Physics2D.IgnoreCollision(PlayerColl, ArrowColl, true);
+        
     }
 
     // Update is called once per frame
@@ -73,6 +75,7 @@ public class Arrow : MonoBehaviour
             ArrowRB.isKinematic = true;
         }
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
             if (collision.gameObject.CompareTag("Enemy"))

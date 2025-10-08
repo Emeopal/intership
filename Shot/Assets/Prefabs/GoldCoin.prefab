@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 5822123936230634109}
   - component: {fileID: 3193053469195741211}
   - component: {fileID: 5077090518717898948}
-  - component: {fileID: 6681239403491715563}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GoldCoin
   m_TagString: GoldCoin
   m_Icon: {fileID: 0}
@@ -143,17 +142,3 @@ CapsuleCollider2D:
   m_Offset: {x: -0.03563543, y: 0}
   m_Size: {x: 0.33297676, y: 0.6666667}
   m_Direction: 0
---- !u!114 &6681239403491715563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5053526748521085147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d437527a6c938af4896b893eab30c01e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Coin: {fileID: 5053526748521085147}
-  coll: {fileID: 0}

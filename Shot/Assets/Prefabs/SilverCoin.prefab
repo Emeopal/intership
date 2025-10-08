@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 2747684938898591639}
   - component: {fileID: 1684549222058893219}
   - component: {fileID: 582743035458676310}
-  - component: {fileID: 2366106005564089611}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SilverCoin
   m_TagString: SilverCoin
   m_Icon: {fileID: 0}
@@ -143,17 +142,3 @@ CapsuleCollider2D:
   m_Offset: {x: -0.00000009934107, y: 0}
   m_Size: {x: 0.3567324, y: 0.6666667}
   m_Direction: 0
---- !u!114 &2366106005564089611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567242062835737611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d437527a6c938af4896b893eab30c01e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Coin: {fileID: 567242062835737611}
-  coll: {fileID: 0}
