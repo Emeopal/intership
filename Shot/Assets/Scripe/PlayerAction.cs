@@ -36,6 +36,8 @@ public class PlayerAction : MonoBehaviour
     private float time_3;
     public AudioSource bgm_1;
     public AudioClip clip_1;
+    public float speed_0;
+    public float speed_1 ;
     void Start()
     {
         playerColl = GetComponent<Collider2D>();
@@ -48,6 +50,7 @@ public class PlayerAction : MonoBehaviour
         bgm_1.clip = clip_1;
         playerRB.velocity = new Vector2(playerRB.velocity.x, 0);
         life = 3;
+        
     }
 
     void Update()
@@ -245,8 +248,7 @@ public class PlayerAction : MonoBehaviour
 
     void doBuff()
     {
-        float speed_0 = playermovespeed;
-        float speed_1 = playermovespeed * 2;
+        
         time_1 -= Time.deltaTime;
         if (time_1 > 0)
         {
@@ -256,12 +258,13 @@ public class PlayerAction : MonoBehaviour
         {
             playermovespeed = speed_0;
         }
-        time_2 -= Time.deltaTime;
+
+            time_2 -= Time.deltaTime;
         if (time_2 > 0)
         {
             isAttacted = true;
         }
-        if (time_2 < 0 && time_2 > 0.1f)
+        if (time_2 < 0 && time_2 >- 0.1f)
         {
             isAttacted = false;
         }

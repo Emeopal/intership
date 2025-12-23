@@ -41,6 +41,7 @@ public class Arrow : MonoBehaviour
         ArrowRB.velocity = new Vector2(speed,ArrowRB.velocity.y);
         Physics2D.IgnoreCollision(PlayerColl, ArrowColl, true);
         
+
     }
 
     // Update is called once per frame
@@ -78,19 +79,16 @@ public class Arrow : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                Destroy(Arrow_C, 0.0f);
-            }
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                Destroy(Arrow_C, 5);
-                isStuck_G = true;
-            }
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                Physics2D.IgnoreCollision(PlayerColl,ArrowColl,true);
-            }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(Arrow_C, 0.0f);
+        }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Destroy(Arrow_C, 5);
+            isStuck_G = true;
+        }
     }
 
 

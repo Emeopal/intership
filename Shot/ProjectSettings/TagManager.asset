@@ -13,6 +13,7 @@ TagManager:
   - Buff_Speed
   - Buff_Fly
   - Buff_NB
+  - Foot
   layers:
   - Default
   - TransparentFX

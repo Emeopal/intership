@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Pass : MonoBehaviour
@@ -32,7 +33,6 @@ public class Pass : MonoBehaviour
             ScoreText.text = "LevelScore:        " + LevelScore;
             Destroy(collision.gameObject,0);
             bgm.Play();
-            DataManager.AddScore(100);
         }
         if (collision.CompareTag("SilverCoin"))
         {
@@ -40,9 +40,8 @@ public class Pass : MonoBehaviour
             ScoreText.text = "LevelScore:        " + LevelScore;
             Destroy(collision.gameObject,0);
             bgm.Play();
-            DataManager.AddScore(50);
         }
-        
+        DataManager.AddScore(SceneManager.GetActiveScene().buildIndex, LevelScore);
         totalscore = DataManager.TotalScore;
         TotalScore.text = "TotalScore:        " + totalscore;
     }

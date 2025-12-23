@@ -18,7 +18,7 @@ public class PassMenu : MonoBehaviour
     {
         if (PassdMenu.activeInHierarchy)
         {
-            if (Input.GetButton("space"))
+            if (Input.GetButtonDown("Fire1"))
             {
                 continuetonext();
             }
